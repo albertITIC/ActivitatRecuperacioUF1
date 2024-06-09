@@ -14,11 +14,6 @@ body{
     z-index: 2;/*quin vols que estigui sobre l'altres*/
 }
 
-/*Borrar un cop acabat, sol ho faig per saber quan ocupa*/
-.elem{
-    border: 1px solid black;
-}
-
 /*Links */
 a:link {
     text-decoration: none;
@@ -324,4 +319,256 @@ a:link {
 
 .contact-info p, .restaurant-name p{
 	margin: 0;
+}
+
+
+/* MEDIA QUERYS */
+/*Si la pantalla es menor o igual a 768px, faré:*/
+@media (max-width:768px) {
+    /* Navegador */
+    .menu{
+        display: flex;
+        justify-content: start;
+        gap: 15px;
+        border: 1px solid black;
+        padding: 20px;
+        position: sticky;
+        background-color: white;
+        top: 0px;/*per manenir-lo*/
+        z-index: 2;/*quin vols que estigui sobre l'altres*/
+    }
+
+    /*Text dels elements*/
+    /*Links */
+    a:link {
+        text-decoration: none;
+        color: black;
+    }
+    
+    /* visited link */
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+    
+    /* mouse over link */
+    a:hover {
+        text-decoration: underline;
+        color: black;
+    }
+    
+    /* selected link */
+    a:active    {
+        text-decoration: underline;
+        color: black;
+    }
+
+    /*h1, text relatiu*/
+    .topleft {
+        position: absolute;
+        top: 10%;
+        left: 16px;
+        font-size: 15px;
+        color: white;
+    }
+
+    .header-main img{
+        width: 100%;
+        filter: brightness(20%);
+        overflow: hidden;
+    }
+
+    /* Sobre nosaltres */    
+    /*Div per controlar la foto de la esquerre*/
+    .container1{
+        display: flex;
+        flex-direction: column;
+    }
+    .sobre-nosaltres-foto1{
+       width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    }
+
+    .sobre-nosaltres-text1{
+        display: flex;
+        justify-content: center;
+    }
+
+    /*container 2 per controlar el text i la img*/
+    .container2{
+        display: flex;
+        flex-direction: column-reverse;
+        padding-top: 10%; /*Deixo espai entre el container d'adalt i d'aquest (sense br)*/
+    }
+
+    /*Text de la esquerre*/
+    .sobre-nosaltres-text2{
+        display: flex;
+        justify-content: center;   
+    }
+
+    /*Foto de situada a la dreta*/
+    .sobre-nosaltres-foto2{
+        width: 100%;
+    }
+
+    /*Carta - grid*/
+    /*Container per grid*/
+    #container-carta{
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-areas: "titol-menu titol-menu"
+                            "menu1 contingut1"
+                            "menu1 foto1-menu1"
+                            "menu1 foto2-menu1"
+                            "menu2 contingut2"
+                            "menu2 foto1-menu2"
+                            "menu2 foto2-menu2";
+
+        row-gap: 5px;    
+        border: 1px solid black;
+    }
+
+    /*Capçalera de la taula*/
+    .titol-menu{
+        background-color: darkblue;
+        color: white;
+        text-align: center;
+        grid-area: titol-menu;
+    }
+
+    /*Part de l'esquerre*/
+    .menu1{
+        grid-area: menu1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid darkblue;
+    }
+
+    /*Titol + text a la dreta*/
+    .contingut1{
+        grid-area: contingut1;
+        padding-left: 15px;
+    }
+
+    .foto1-menu1{
+        position: relative;
+        width: 100%;
+    }
+
+    .foto1-menu1 img{
+        grid-area: foto-plat1;
+        width: 100%;
+    }
+
+    .foto2-menu1{
+        position: relative;
+        width: 100%;
+    }
+
+    .foto2-menu1 img{
+        grid-area: foto2-menu1;
+        width: 100%;
+        height: 100%;
+    }   
+
+    /*menú 2, part de sota de la taula*/
+    .menu2{
+        grid-area: menu2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contingut2{
+        grid-area: contingut2;
+        padding-left: 15px;
+    }
+
+    /*Galeria d'imatges*/
+    /*He de fer ús de flex per la galeria*/
+    .container-galeria{
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .foto1{
+        filter: brightness(0.4);
+        border: 1px solid #ddd;
+        border-radius: 1px;
+    }
+    
+    .foto1 img{
+      width: 100%;
+    }
+    
+    .foto2{
+        border: 1px solid #ddd;
+        border-radius: 1px;
+    }
+
+    .foto2 img{
+        width: 100%;
+    }
+
+    .container-galeria div{
+        width: 31vw;
+    }
+
+    .footer{
+        display: flex;
+        justify-content: space-around;
+    }      
+    
+}
+
+@media (max-width:576px){
+    /* Sobre Nosaltres */
+    .seccio1 h2{
+        display: flex;
+        justify-content: center;
+    }
+
+    /* CARTA */
+    .seccio2 h2{
+        display: flex;
+        justify-content: center;
+    }
+
+    /* GRID DE LA CARTA */
+    #container-carta{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: "titol-menu"
+                            "menu1"
+                            "contingut1"
+                            "foto1-menu1"
+                            "foto2-menu1"
+                            "menu2"
+                            "contingut2"
+                            "foto1-menu2"
+                            "foto2-menu2";
+
+        row-gap: 5px;    
+        border: 1px solid black;
+    }
+
+
+    /* GALERIA */
+    .container-galeria div{
+        width: 100vw;
+    }
+
+    /* FOOTER */
+    .footer{
+        display: flex;
+        justify-content: start;
+    }
+
+    /* None = lo quita */
+    .restaurant-name{
+        display: none;
+    }
+
 }
